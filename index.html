@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bounce On Click</title>
+		<link rel="stylesheet" type="text/css" href="./assets/css/index.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="text1-box text">
+				<img src="./assets/img/minus.png">
+				<span><hr>Bread</span>
+			</div>
+			<div class="text2-box text"><img src="./assets/img/minus.png"><span><hr>Cheese</span></div>
+			<div class="text3-box text"><img src="./assets/img/minus.png"><span><hr>Coffe</span></div>
+		</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+		<script>
+			var isClicked = false;
+			$(".text").on("click",function(){
+				let selectedElement = $(this);
+				if (isClicked==false)
+				{
+					selectedElement.children().children().animate({"width":"100%"});
+					selectedElement.children().css({"color":"grey"});
+					selectedElement.children().attr("src",'https://i.postimg.cc/5Nc6Y6rc/free-icon-1.png');
+					selectedElement.children("span").animate({"margin-left":"5px"},200,"easeInOutBounce").animate({"margin-left":"0px"},200,"easeInOutBounce");
+					isClicked=true;
+				}
+				else
+				{
+					selectedElement.children().children().animate({"width":"0%"});
+					selectedElement.children().css({"color":"#000"});
+					selectedElement.children().attr("src",'./assets/img/minus.png');
+					isClicked=false;
+				}
+			});
+			
+			
+// function animeBoxThree(animate)
+// {
+ 
+//   if(animate)
+//    {
+//       $("div.box-three").animate({"margin-left":"200px"},1000,"easeInOutBounce").animate({"margin-left":"0px"},1000,"easeInOutBounce");
+     
+//     playingInterval3 =  setInterval(function(){
+//        $("div.box-three").animate({"margin-left":"200px"},1000,"easeInOutBounce").animate({"margin-left":"0px"},1000,"easeInOutBounce");},2000);
+//       // console.log("Animation Started");
+       
+//    }
+//   else
+//     {
+//       clearInterval(playingInterval3);
+//       // console.log("Stopped Animation");
+//     }
+   
+// }
+		</script>
+	</body>
+</html>
